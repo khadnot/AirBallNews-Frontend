@@ -6,9 +6,7 @@ class News extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "",
-            url: "",
-            urlToImage: ""
+            news: []
         };
     }
 
@@ -16,7 +14,7 @@ class News extends Component {
         let team = 'Portland Trail Blazers';
         let teamUrl = team.replace(' ', '%').toLowerCase();
         const API_KEY = 'a6cabd1a61ed4f74b9db44143a8370f5'
-        const url = `https://newsapi.org/v2/everything?q=${teamUrl}&pageSize=1&apiKey=${API_KEY}`;
+        const url = `https://newsapi.org/v2/everything?q=${teamUrl}&pageSize=5&apiKey=${API_KEY}`;
         let res = null;
         try {
             res = await axios(url, {
@@ -24,31 +22,36 @@ class News extends Component {
                     Accept: 'application/json'
                 }
             });
-        } catch (e) {
-          console.log(e);
+        } catch (err) {
+          console.log(err);
         }
         this.setState({ 
-            title: res.data.articles[0].title,
-            url: res.data.articles[0].url,
-            urlToImage: res.data.articles[0].urlToImage 
+            news: res.data.articles
         });
     }
     
     render() {
-        const { title, url, urlToImage } = this.state;
-        console.log(url);
+        const { news } = this.state;
+        console.log(news);
+        let mappedArr = news.map(news => {
+            return (
+                <div className='container'>
+                    <img src={news.urlToImage} alt={news.title} className='image' />
+                    <a href={news.url} target='_blank' rel='noreferrer'>
+                        <div className='overlay'>
+                            <div className='text'>{news.title}</div>
+                        </div>
+                    </a>
+                </div>
+            );
+        });
         return (
             <div className="App">
                 <h3>Welcome to the News Page!!</h3>
                 <br />
-                <div className='container'>
-                    <img src={urlToImage} alt={title} className='image' width='300px'  />
-                    <a href={url} target='_blank' rel='noreferrer'>
-                        <div className='overlay'>
-                            <div className='text'>{title}</div>
-                        </div>
-                    </a>
-                </div>
+                <ul>
+                    {mappedArr}
+                </ul>
             </div>
         );
     }
