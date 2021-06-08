@@ -49,6 +49,7 @@ class News extends Component {
             <div className="App">
                 <h3>Welcome to the News Page!!</h3>
                 <br />
+                <h2>Trail Blazers News</h2>
                 <ul>
                     {mappedArr}
                 </ul>
