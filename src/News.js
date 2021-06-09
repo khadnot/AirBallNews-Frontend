@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import axios from 'axios';
+import NBA from 'nba';
 import './News.css';
 
 class News extends Component {
@@ -31,11 +32,12 @@ class News extends Component {
     }
     
     render() {
+        const dame = NBA.findPlayer('Damian Lillard');
         const { news } = this.state;
-        console.log(news);
+        console.log(dame); // works, logs info on Dame!!
         let mappedArr = news.map(news => {
             return (
-                <div className='container'>
+                <div className='container' key={news.title}>
                     <img src={news.urlToImage} alt={news.title} className='image' />
                     <a href={news.url} target='_blank' rel='noreferrer'>
                         <div className='overlay'>
