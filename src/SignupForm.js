@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Alert from './Alert';
 
-function SignupForm({ signup }) {
+function SignupForm() { // { signup } param
     const history = useHistory();
     const [formData, setFormData] = useState({
         firstName: "",
@@ -14,12 +15,14 @@ function SignupForm({ signup }) {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        history.push('/teams');
+        /*
         let result = await signup(formData);
         if (result.success) {
             history.push('/teams');
         } else {
-            setFormData(result.errors);
-        }
+            setFormErrors(result.errors);
+        }*/
     }
 
     function handleChange(e) {
@@ -80,7 +83,12 @@ function SignupForm({ signup }) {
                     />
                 </div>
 
-                <button tpye='submit' onSubmit={handleSubmit}>
+                {formErrors.length
+                    ? <Alert type="danger" messages={formErrors} />
+                    : null
+                }
+
+                <button type='submit' onSubmit={handleSubmit}>
                     Submit
                 </button>
             </form>

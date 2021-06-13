@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Alert from './Alert'
 
 function LoginForm({ login }) {
     const history = useHistory();
@@ -54,6 +55,10 @@ function LoginForm({ login }) {
                         required
                     />
                 </div>
+
+                {formErrors.length
+                    ? <Alert type='danger' messages={formErrors} />
+                    : null}
 
                 <button onSubmit={handleSubmit}>
                     Submit
