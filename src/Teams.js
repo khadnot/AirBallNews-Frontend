@@ -3,7 +3,7 @@ import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
 const NBA = require('nba');
-const curry = NBA.findPlayer('Stephen Curry');
+//const curry = NBA.findPlayer('Stephen Curry');
 
 class Teams extends Component {
 
@@ -12,7 +12,7 @@ class Teams extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick() {
     console.log('clicked me!!')
   }
 
@@ -22,8 +22,8 @@ class Teams extends Component {
         <h1>Welcome to the Teams Page!</h1>
         <p>Please select your favorite team:</p>
         <div>
-          <div onClick={this.handleClick}>
-            <NBAIcons.ATL size={125} team='ATL' />
+          <div className='ATL'>
+            <NBAIcons.ATL size={125} />
           </div>
           <NBAIcons.BKN size={125} />
           <NBAIcons.BOS size={125} />

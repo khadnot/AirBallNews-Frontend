@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Alert from './Alert';
 
-function SignupForm() { // { signup } param
+function SignupForm({ signup }) { // { signup } param
     const history = useHistory();
     const [formData, setFormData] = useState({
         firstName: "",
@@ -15,14 +15,13 @@ function SignupForm() { // { signup } param
 
     async function handleSubmit(e) {
         e.preventDefault();
-        history.push('/teams');
-        /*
+        //history.push('/teams');
         let result = await signup(formData);
         if (result.success) {
             history.push('/teams');
         } else {
             setFormErrors(result.errors);
-        }*/
+        }
     }
 
     function handleChange(e) {
@@ -39,7 +38,6 @@ function SignupForm() { // { signup } param
                     <label>First Name:</label>
                     <input
                         name='firstName'
-                        className='form-control'
                         value={formData.firstName}
                         onChange={handleChange}
                     />
@@ -48,7 +46,6 @@ function SignupForm() { // { signup } param
                     <label>Last Name:</label>
                     <input
                         name='lastName'
-                        className='form-control'
                         value={formData.lastName}
                         onChange={handleChange}
                     />
@@ -57,7 +54,6 @@ function SignupForm() { // { signup } param
                     <label>Username:</label>
                     <input
                         name='username'
-                        className='form-control'
                         value={formData.username}
                         onChange={handleChange}
                     />
@@ -67,7 +63,6 @@ function SignupForm() { // { signup } param
                     <input
                         type='password'
                         name='password'
-                        className='form-control'
                         value={formData.password}
                         onChange={handleChange}
                     />
@@ -77,7 +72,6 @@ function SignupForm() { // { signup } param
                     <input
                         type='email'
                         name='email'
-                        className='form-control'
                         value={formData.email}
                         onChange={handleChange}
                     />

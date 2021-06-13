@@ -1,5 +1,5 @@
 .Navigation {
-    background-color: rgb(221, 50, 50);
+    background-color:blanchedalmond;
     border-bottom: 2px solid rgba(0, 0, 0, 0.125);
     font-weight: bold;
   }
@@ -8,3 +8,7 @@
     font-weight: bold;
     color: black;
   }
+
+  ul {
+    list-style-type: none;
+}

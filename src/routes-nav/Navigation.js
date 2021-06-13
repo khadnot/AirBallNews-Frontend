@@ -16,7 +16,7 @@ function Navigation({ logout }) {
 
     function loggedInNav() {
         return (
-            <ul className='navbar-nav ml-auto'>
+            <ul className='navbar-nav mr-auto'>
                 <li className='nav-item mr-4'>
                     <NavLink className='nav-link' to='/profile'>
                         Profile
@@ -38,7 +38,7 @@ function Navigation({ logout }) {
 
     function loggedOutNav() {
         return (
-            <ul className='nav-bar ml-auto'>
+            <ul className='nav-bar mr-auto'>
                 <li className='nav-item mr-4'>
                     <NavLink className='nav-link' to='/login'>
                         Login
@@ -54,7 +54,7 @@ function Navigation({ logout }) {
     }
 
     return (
-        <nav className='Navigation navbar navbar-expand-md'>
+        <nav className='Navigation navbar'>
             <Link className='navbar-brand' to='/'>
                 Air Ball News
             </Link>

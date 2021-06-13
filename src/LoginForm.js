@@ -36,7 +36,6 @@ function LoginForm({ login }) {
                     <label>Username:</label>
                     <input 
                         name='username'
-                        className='form-control'
                         value={formData.username}
                         onChange={handleChange}
                         autoComplete='username'
@@ -48,7 +47,6 @@ function LoginForm({ login }) {
                     <input
                         type='password'
                         name='password'
-                        className='form-control'
                         value={formData.password}
                         onChange={handleChange}
                         autoComplete='current-password'

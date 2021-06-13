@@ -15,6 +15,8 @@ import PrivateRoute from './PrivateRoute';
  *  They're wrapped by <PrivateRoute>, which is an authorization component.
  * 
  *  If not logged in, route redirects to homepage.
+ * 
+ * Change team and news back to private route.......>>>>>>>>>>>>>>>>>
  */
 
 function Routes({ login, signup }) {
@@ -40,13 +42,13 @@ function Routes({ login, signup }) {
                     <SignupForm signup={ signup } />
                 </Route>
                 
-                <PrivateRoute exact path='/teams'>
+                <Route exact path='/teams'>
                     <Teams />
-                </PrivateRoute>
+                </Route>
                 
-                <PrivateRoute exact path='/news'>
+                <Route exact path='/news'>
                     <News />
-                </PrivateRoute>
+                </Route>
                 
                 <PrivateRoute exact path='/profile'>
                     <ProfileForm />
