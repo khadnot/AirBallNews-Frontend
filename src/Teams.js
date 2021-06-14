@@ -14,7 +14,7 @@ class Teams extends Component {
   }
 
   handleClick() {
-    
+
   }
 
   render() {
@@ -23,13 +23,13 @@ class Teams extends Component {
         <h1>Welcome to the Teams Page!</h1>
         <p>Please select your favorite team:</p>
         <div className='row'>
-          <Link className='column' to='/teams/hawks'>
+          <Link className='column' to='/teams/atlanta&hawks'>
             <NBAIcons.ATL size={125} />
           </Link>
-          <Link className='column' to='/teams/nets'>
+          <Link className='column' to='/teams/brookly&nnets'>
             <NBAIcons.BKN size={125} />
           </Link>
-          <Link className='column' to='/teams/celtics'>
+          <Link className='column' to='/teams/boston&celtics'>
             <NBAIcons.BOS size={125} />
           </Link>
           <Link className='column' to='/teams/hornets'>
@@ -38,7 +38,7 @@ class Teams extends Component {
           <Link className='column' to='/teams/bulls'>
             <NBAIcons.CHI size={125} />
           </Link>
-          <Link className='column' to='/teams/cavs'>
+          <Link className='column' to='/teams/cavaliers'>
             <NBAIcons.CLE size={125} />
           </Link>
           <Link className='column' to='/teams/mavs'>

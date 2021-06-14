@@ -14,7 +14,7 @@ class News extends Component {
     async componentDidMount() {
         let team = 'Portland Trail Blazers';
         let teamUrl = team.replace(' ', '%').toLowerCase();
-        const API_KEY = 'a6cabd1a61ed4f74b9db44143a8370f5'
+        const API_KEY = 'a6cabd1a61ed4f74b9db44143a8370f5';
         const url = `https://newsapi.org/v2/everything?q=${teamUrl}&pageSize=5&apiKey=${API_KEY}`;
         let res = null;
         try {
