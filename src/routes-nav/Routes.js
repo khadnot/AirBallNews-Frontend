@@ -5,6 +5,7 @@ import LoginForm from '../LoginForm';
 import SignupForm from '../SignupForm';
 import ProfileForm from '../ProfileForm';
 import Teams from '../Teams';
+import TeamPage from '../TeamPage';
 import News from '../News';
 import PrivateRoute from './PrivateRoute';
 
@@ -44,6 +45,10 @@ function Routes({ login, signup }) {
                 
                 <Route exact path='/teams'>
                     <Teams />
+                </Route>
+
+                <Route exact path='/teams/:team'>
+                    <TeamPage />
                 </Route>
                 
                 <Route exact path='/news'>
