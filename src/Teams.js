@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
-const NBA = require('nba');
+//const NBA = require('nba');
 //const curry = NBA.findPlayer('Stephen Curry');
 
 class Teams extends Component {
@@ -23,98 +23,128 @@ class Teams extends Component {
         <h1>Welcome to the Teams Page!</h1>
         <p>Please select your favorite team:</p>
         <div className='row'>
-          <Link className='column' to='/teams/atlanta&hawks'>
+          <Link className='column' 
+            to='/teams/atlanta%25hawks'>
             <NBAIcons.ATL size={125} />
           </Link>
-          <Link className='column' to='/teams/brookly&nnets'>
+          <Link className='column' 
+            to='/teams/brooklyn%25nets'>
             <NBAIcons.BKN size={125} />
           </Link>
-          <Link className='column' to='/teams/boston&celtics'>
+          <Link className='column' 
+            to='/teams/celtics'>
             <NBAIcons.BOS size={125} />
           </Link>
-          <Link className='column' to='/teams/hornets'>
+          <Link className='column' 
+            to='/teams/charlotte%25hornets'>
             <NBAIcons.CHA size={125} />
           </Link>
-          <Link className='column' to='/teams/bulls'>
+          <Link className='column' 
+            to='/teams/chicago%25bulls'>
             <NBAIcons.CHI size={125} />
           </Link>
-          <Link className='column' to='/teams/cavaliers'>
+          <Link className='column' 
+            to='/teams/cavaliers'>
             <NBAIcons.CLE size={125} />
           </Link>
-          <Link className='column' to='/teams/mavs'>
+          <Link className='column' 
+            to='/teams/dallas%25mavericks'>
             <NBAIcons.DAL size={125} />
           </Link>
-          <Link className='column' to='/teams/nuggets'>
+          <Link className='column' 
+            to='/teams/denver%25nuggets'>
             <NBAIcons.DEN size={125} />
           </Link>
-          <Link className='column' to='/teams/pistons'>
+          <Link className='column' 
+            to='/teams/detroit%25pistons'>
             <NBAIcons.DET size={125} />
           </Link>
-          <Link className='column' to='/teams/warriors'>
+          <Link className='column' 
+            to='/teams/golden%25state%25warriors'>
             <NBAIcons.GSW size={125} />
           </Link>
         </div>
         <div className='row'>
-          <Link className='column' to='/teams/rockets'>
+          <Link className='column' 
+            to='/teams/houston%25rockets'>
             <NBAIcons.HOU size={125} />
           </Link>
-          <Link className='column' to='/teams/pacers'>
+          <Link className='column' 
+            to='/teams/indiana%25pacers'>
             <NBAIcons.IND size={125} /> 
           </Link>
-          <Link className='column' to='/teams/clippers'>
+          <Link className='column' 
+            to='/teams/los%25angeles%25clippers'>
             <NBAIcons.LAC size={125} />
           </Link>
-          <Link className='column' to='/teams/lakers'>
+          <Link className='column' 
+            to='/teams/los%25angeles%25lakers'>
             <NBAIcons.LAL size={125} />
           </Link>
-          <Link className='column' to='/teams/grizzles'>
+          <Link className='column' 
+            to='/teams/memphis%25grizzles'>
             <NBAIcons.MEM size={125} />
           </Link>
-          <Link className='column' to='/teams/heat'>
+          <Link className='column' 
+            to='/teams/miami%25heat'>
             <NBAIcons.MIA size={125} />
           </Link>
-          <Link className='column' to='/teams/bucks'>
+          <Link className='column' 
+            to='/teams/milwaukee%25bucks'>
             <NBAIcons.MIL size={125} />
           </Link>
-          <Link className='column' to='/teams/timberwolves'>
+          <Link className='column' 
+            to='/teams/minnesota%25timberwolves'>
             <NBAIcons.MIN size={125} />
           </Link>
-          <Link className='column' to='/teams/pelicans'>
+          <Link className='column' 
+            to='/teams/new%25orleans%25pelicans'>
             <NBAIcons.NOP size={125} />
           </Link>
-          <Link className='column' to='/teams/knicks'>
+          <Link className='column' 
+            to='/teams/new%25york%25knicks'>
             <NBAIcons.NYK size={125} />
           </Link>
         </div>
         <div className='row'>
-          <Link className='column' to='/teams/thunder'>
+          <Link className='column' 
+            to='/teams/oklahoma%25city%25thunder'>
            <NBAIcons.OKC size={125} /> 
           </Link>
-          <Link className='column' to='/teams/magic'>
+          <Link className='column' 
+            to='/teams/orlando%25magic'>
             <NBAIcons.ORL size={125} />
           </Link>  
-          <Link className='column' to='/teams/76ers'>
+          <Link className='column' 
+            to='/teams/76ers'>
             <NBAIcons.PHI size={125} />
           </Link>
-          <Link className='column' to='/teams/suns'>
+          <Link className='column' 
+            to='/teams/phoenix%25suns'>
             <NBAIcons.PHX size={125} />
           </Link>
-          <Link className='column' to='/teams/blazers'>
+          <Link className='column' 
+            to='/teams/portland%25trail%25blazers'>
             <NBAIcons.POR size={125} />
           </Link>
-          <Link className='column' to='/teams/kings'>
+          <Link className='column' 
+            to='/teams/sacramento%25kings'>
             <NBAIcons.SAC size={125} />
           </Link>
-          <Link className='column' to='/teams/spurs'>
+          <Link className='column' 
+            to='/teams/san%25antonio%25spurs'>
             <NBAIcons.SAS size={125} />
           </Link>  
-          <Link className='column' to='/teams/raptors'>
+          <Link className='column' 
+            to='/teams/toronto%25raptors'>
             <NBAIcons.TOR size={125} />
           </Link>
-          <Link className='column' to='/teams/jazz'>
+          <Link className='column' 
+            to='/teams/utah%25jazz'>
             <NBAIcons.UTA size={125} />
           </Link>
-          <Link className='column' to='/teams/wizards'>
+          <Link className='column' 
+            to='/teams/washington%25wizards'>
           <NBAIcons.WAS size={125} />
           </Link>
         </div>
