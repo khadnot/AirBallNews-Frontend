@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
@@ -13,7 +14,7 @@ class Teams extends Component {
   }
 
   handleClick() {
-    console.log('clicked me!!')
+    
   }
 
   render() {
@@ -21,43 +22,101 @@ class Teams extends Component {
       <div className='team-names'>
         <h1>Welcome to the Teams Page!</h1>
         <p>Please select your favorite team:</p>
-        <div>
-          <div className='ATL'>
+        <div className='row'>
+          <Link className='column' to='/teams/hawks'>
             <NBAIcons.ATL size={125} />
-          </div>
-          <NBAIcons.BKN size={125} />
-          <NBAIcons.BOS size={125} />
-          <NBAIcons.CHA size={125} />
-          <NBAIcons.CHI size={125} />
-          <NBAIcons.CLE size={125} />
-          <NBAIcons.DAL size={125} />
-          <NBAIcons.DEN size={125} />
-          <NBAIcons.DET size={125} />
-          <NBAIcons.GSW size={125} />
+          </Link>
+          <Link className='column' to='/teams/nets'>
+            <NBAIcons.BKN size={125} />
+          </Link>
+          <Link className='column' to='/teams/celtics'>
+            <NBAIcons.BOS size={125} />
+          </Link>
+          <Link className='column' to='/teams/hornets'>
+            <NBAIcons.CHA size={125} />
+          </Link>
+          <Link className='column' to='/teams/bulls'>
+            <NBAIcons.CHI size={125} />
+          </Link>
+          <Link className='column' to='/teams/cavs'>
+            <NBAIcons.CLE size={125} />
+          </Link>
+          <Link className='column' to='/teams/mavs'>
+            <NBAIcons.DAL size={125} />
+          </Link>
+          <Link className='column' to='/teams/nuggets'>
+            <NBAIcons.DEN size={125} />
+          </Link>
+          <Link className='column' to='/teams/pistons'>
+            <NBAIcons.DET size={125} />
+          </Link>
+          <Link className='column' to='/teams/warriors'>
+            <NBAIcons.GSW size={125} />
+          </Link>
         </div>
-        <div>
-          <NBAIcons.HOU size={125} />
-          <NBAIcons.IND size={125} /> 
-          <NBAIcons.LAC size={125} />
-          <NBAIcons.LAL size={125} />
-          <NBAIcons.MEM size={125} />
-          <NBAIcons.MIA size={125} />
-          <NBAIcons.MIL size={125} />
-          <NBAIcons.MIN size={125} />
-          <NBAIcons.NOP size={125} />
-          <NBAIcons.NYK size={125} />
+        <div className='row'>
+          <Link className='column' to='/teams/rockets'>
+            <NBAIcons.HOU size={125} />
+          </Link>
+          <Link className='column' to='/teams/pacers'>
+            <NBAIcons.IND size={125} /> 
+          </Link>
+          <Link className='column' to='/teams/clippers'>
+            <NBAIcons.LAC size={125} />
+          </Link>
+          <Link className='column' to='/teams/lakers'>
+            <NBAIcons.LAL size={125} />
+          </Link>
+          <Link className='column' to='/teams/grizzles'>
+            <NBAIcons.MEM size={125} />
+          </Link>
+          <Link className='column' to='/teams/heat'>
+            <NBAIcons.MIA size={125} />
+          </Link>
+          <Link className='column' to='/teams/bucks'>
+            <NBAIcons.MIL size={125} />
+          </Link>
+          <Link className='column' to='/teams/timberwolves'>
+            <NBAIcons.MIN size={125} />
+          </Link>
+          <Link className='column' to='/teams/pelicans'>
+            <NBAIcons.NOP size={125} />
+          </Link>
+          <Link className='column' to='/teams/knicks'>
+            <NBAIcons.NYK size={125} />
+          </Link>
         </div>
-        <div>
-          <NBAIcons.OKC size={125} />  
-          <NBAIcons.ORL size={125} />
-          <NBAIcons.PHI size={125} />
-          <NBAIcons.PHX size={125} />  
-          <NBAIcons.POR size={125} />
-          <NBAIcons.SAC size={125} />  
-          <NBAIcons.SAS size={125} />
-          <NBAIcons.TOR size={125} />
-          <NBAIcons.UTA size={125} />
+        <div className='row'>
+          <Link className='column' to='/teams/thunder'>
+           <NBAIcons.OKC size={125} /> 
+          </Link>
+          <Link className='column' to='/teams/magic'>
+            <NBAIcons.ORL size={125} />
+          </Link>  
+          <Link className='column' to='/teams/76ers'>
+            <NBAIcons.PHI size={125} />
+          </Link>
+          <Link className='column' to='/teams/suns'>
+            <NBAIcons.PHX size={125} />
+          </Link>
+          <Link className='column' to='/teams/blazers'>
+            <NBAIcons.POR size={125} />
+          </Link>
+          <Link className='column' to='/teams/kings'>
+            <NBAIcons.SAC size={125} />
+          </Link>
+          <Link className='column' to='/teams/spurs'>
+            <NBAIcons.SAS size={125} />
+          </Link>  
+          <Link className='column' to='/teams/raptors'>
+            <NBAIcons.TOR size={125} />
+          </Link>
+          <Link className='column' to='/teams/jazz'>
+            <NBAIcons.UTA size={125} />
+          </Link>
+          <Link className='column' to='/teams/wizards'>
           <NBAIcons.WAS size={125} />
+          </Link>
         </div>
       </div>
     );

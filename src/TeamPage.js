@@ -13,10 +13,11 @@ import { useParams } from "react-router-dom";
 
 function TeamPage() {
     const { team } = useParams();
+    const teamName = team.charAt(0).toUpperCase() + team.slice(1);
 
     return (
         <div className='TeamPage'>
-            <h1>Welcome the Team Page for the { team }!!</h1>
+            <h1>Welcome the Team Page for the { teamName }!!</h1>
             <h3>Here is where all the magic happens!!</h3>
             <h4>Boom Boom Clap!</h4>
         </div>
