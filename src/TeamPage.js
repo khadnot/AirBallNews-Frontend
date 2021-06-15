@@ -11,7 +11,6 @@ class News extends Component {
             news: []
         };
     }
-    // https://newsapi.org/v2/everything?q=brooklyn%nets&pageSize=5&apiKey=a6cabd1a61ed4f74b9db44143a8370f5
 
     async componentDidMount() {
         const team = this.props.match.params.team;

@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
-//const NBA = require('nba');
+//import NBA from 'nba';
 //const curry = NBA.findPlayer('Stephen Curry');
+//NBA.stats.playerInfo({ PlayerID: curry.playerId }).then(console.log);
+//console.log(curry);
+// curry player id = 201939
+// image source https://cdn.nba.com/headshots/nba/latest/260x190/{playerId}.png
+// change player id for each picture
 
 class Teams extends Component {
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      player:[],
+    }
   }
 
   handleClick() {
+  }
 
+  getPic(e) {
+    e.preventDefault();
+    
   }
 
   render() {
@@ -22,6 +35,12 @@ class Teams extends Component {
       <div className='team-names'>
         <h1>Welcome to the Teams Page!</h1>
         <p>Please select your favorite team:</p>
+        <img src='https://cdn.nba.com/headshots/nba/latest/260x190/201939.png' alt='curry' />
+        <p>Steph Curry</p>
+        <br />
+        <img src='https://cdn.nba.com/headshots/nba/latest/260x190/203954.png' alt='embiid' />
+        <p>Joel Embiid</p>
+        <br />
         <div className='row'>
           <Link className='column' 
             to='/teams/atlanta%25hawks'>
