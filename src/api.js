@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001/'; // maybe remove the ending /
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001'; //
 
 /** My API Class
  * 
@@ -40,7 +40,7 @@ class Api {
 
     // Get token for login from username and password
     static async login(data) {
-        let res = await this.request(`auth/token`, data, 'post');
+        let res = await this.request('auth/token', data, 'post');
         return res.token;
     }
 

@@ -68,7 +68,7 @@ function SignupForm({ signup }) { // { signup } param
                     />
                 </div>
                 <div className='form-group'>
-                    <label>Email</label>
+                    <label>Email:</label>
                     <input
                         type='email'
                         name='email'
@@ -77,7 +77,7 @@ function SignupForm({ signup }) { // { signup } param
                     />
                 </div>
 
-                {formErrors.length
+                {formErrors.length >= 1
                     ? <Alert type="danger" messages={formErrors} />
                     : null
                 }
