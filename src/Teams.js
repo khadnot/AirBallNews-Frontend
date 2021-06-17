@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, withRouter } from 'react-router-dom';
+//import useLocalStorage from "./hooks/useLocalStorage";
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
@@ -12,22 +12,33 @@ import * as NBAIcons from 'react-nba-logos';
 // image source https://cdn.nba.com/headshots/nba/latest/260x190/{playerId}.png
 // change player id for each picture
 
+// Key name for storing team id in localStorage for database
+export const TEAM_ID = 'team-id';
+
 class Teams extends Component {
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      player:[],
+      team: "",
+      url: ""
     }
   }
 
-  handleClick() {
-  }
+  // 
 
-  getPic(e) {
+  async handleClick(e) {
     e.preventDefault();
-    
+    //localStorage.removeItem('teamName');
+    await this.setState({ 
+      team: e.currentTarget.id,
+      url: e.currentTarget.attributes.to.value
+    });
+    console.log(this.state)
+    const { team } = this.state;
+    localStorage.setItem('teamName', team);
+    // this is where I need to go to the next page!! the Teams page!!
   }
 
   render() {
@@ -42,128 +53,128 @@ class Teams extends Component {
         <p>Joel Embiid</p>
         <br />
         <div className='row'>
+          <div className='column' 
+            to='/teams/atlanta%25hawks' id='ATL' onClick={this.handleClick}>
+            <NBAIcons.ATL size={125} team='ATL' />
+          </div>
+          <div className='column' 
+            to='/teams/brooklyn%25nets' id='BKN' onClick={this.handleClick}>
+            <NBAIcons.BKN size={125} team='BKN' />
+          </div>
           <Link className='column' 
-            to='/teams/atlanta%25hawks'>
-            <NBAIcons.ATL size={125} />
-          </Link>
-          <Link className='column' 
-            to='/teams/brooklyn%25nets'>
-            <NBAIcons.BKN size={125} />
-          </Link>
-          <Link className='column' 
-            to='/teams/celtics'>
+            to='/teams/celtics' id='BOS' onClick={this.handleClick}>
             <NBAIcons.BOS size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/charlotte%25hornets'>
+            to='/teams/charlotte%25hornets' id='CHA' onClick={this.handleClick}>
             <NBAIcons.CHA size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/chicago%25bulls'>
+            to='/teams/chicago%25bulls' id='CHI' onClick={this.handleClick}>
             <NBAIcons.CHI size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/cavaliers'>
+            to='/teams/cavaliers' id='CLE' onClick={this.handleClick}>
             <NBAIcons.CLE size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/dallas%25mavericks'>
+            to='/teams/dallas%25mavericks' id='DAL' onClick={this.handleClick}>
             <NBAIcons.DAL size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/denver%25nuggets'>
+            to='/teams/denver%25nuggets' id='DEN' onClick={this.handleClick}>
             <NBAIcons.DEN size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/detroit%25pistons'>
+            to='/teams/detroit%25pistons' id='DET' onClick={this.handleClick}>
             <NBAIcons.DET size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/golden%25state%25warriors'>
+            to='/teams/golden%25state%25warriors' id='GSW' onClick={this.handleClick}>
             <NBAIcons.GSW size={125} />
           </Link>
         </div>
         <div className='row'>
           <Link className='column' 
-            to='/teams/houston%25rockets'>
+            to='/teams/houston%25rockets' id='HOU' onClick={this.handleClick}>
             <NBAIcons.HOU size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/indiana%25pacers'>
+            to='/teams/indiana%25pacers' id='IND' onClick={this.handleClick}>
             <NBAIcons.IND size={125} /> 
           </Link>
           <Link className='column' 
-            to='/teams/los%25angeles%25clippers'>
+            to='/teams/los%25angeles%25clippers' id='LAC' onClick={this.handleClick}>
             <NBAIcons.LAC size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/los%25angeles%25lakers'>
+            to='/teams/los%25angeles%25lakers' id='LAL' onClick={this.handleClick}>
             <NBAIcons.LAL size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/memphis%25grizzles'>
+            to='/teams/memphis%25grizzles' id='MEM' onClick={this.handleClick}>
             <NBAIcons.MEM size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/miami%25heat'>
+            to='/teams/miami%25heat' id='MIA' onClick={this.handleClick}>
             <NBAIcons.MIA size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/milwaukee%25bucks'>
+            to='/teams/milwaukee%25bucks' id='MIL' onClick={this.handleClick}>
             <NBAIcons.MIL size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/minnesota%25timberwolves'>
+            to='/teams/minnesota%25timberwolves' id='MIN' onClick={this.handleClick}>
             <NBAIcons.MIN size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/new%25orleans%25pelicans'>
+            to='/teams/new%25orleans%25pelicans' id='NOP' onClick={this.handleClick}>
             <NBAIcons.NOP size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/new%25york%25knicks'>
+            to='/teams/new%25york%25knicks' id='NYK' onClick={this.handleClick}>
             <NBAIcons.NYK size={125} />
           </Link>
         </div>
         <div className='row'>
           <Link className='column' 
-            to='/teams/oklahoma%25city%25thunder'>
+            to='/teams/oklahoma%25city%25thunder' id='OKC' onClick={this.handleClick}>
            <NBAIcons.OKC size={125} /> 
           </Link>
           <Link className='column' 
-            to='/teams/orlando%25magic'>
+            to='/teams/orlando%25magic' id='ORL' onClick={this.handleClick}>
             <NBAIcons.ORL size={125} />
           </Link>  
           <Link className='column' 
-            to='/teams/76ers'>
+            to='/teams/76ers' id='PHI' onClick={this.handleClick}>
             <NBAIcons.PHI size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/phoenix%25suns'>
+            to='/teams/phoenix%25suns' id='PHX' onClick={this.handleClick}>
             <NBAIcons.PHX size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/portland%25trail%25blazers'>
+            to='/teams/portland%25trail%25blazers' id='POR' onClick={this.handleClick}>
             <NBAIcons.POR size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/sacramento%25kings'>
+            to='/teams/sacramento%25kings' id='SAC' onClick={this.handleClick}>
             <NBAIcons.SAC size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/san%25antonio%25spurs'>
+            to='/teams/san%25antonio%25spurs' id='SAS' onClick={this.handleClick}>
             <NBAIcons.SAS size={125} />
           </Link>  
           <Link className='column' 
-            to='/teams/toronto%25raptors'>
+            to='/teams/toronto%25raptors' id='TOR' onClick={this.handleClick}>
             <NBAIcons.TOR size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/utah%25jazz'>
+            to='/teams/utah%25jazz' id='UTA' onClick={this.handleClick}>
             <NBAIcons.UTA size={125} />
           </Link>
           <Link className='column' 
-            to='/teams/washington%25wizards'>
+            to='/teams/washington%25wizards' id='WAS' onClick={this.handleClick}>
           <NBAIcons.WAS size={125} />
           </Link>
         </div>

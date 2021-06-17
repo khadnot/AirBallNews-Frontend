@@ -12,6 +12,7 @@ export const TOKEN_STORAGE_ID = "api-token";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [teamName,  setTeamName] = useState("");
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
   // Load user info from API. Doesn't run until a user is logged in with a token
@@ -38,6 +39,7 @@ function App() {
   // Handles logging out of site
   function logout() {
     setCurrentUser(null);
+    setTeamName(null);
     setToken(null);
   }
 

@@ -6,7 +6,6 @@ import SignupForm from '../SignupForm';
 import ProfileForm from '../ProfileForm';
 import Teams from '../Teams';
 import TeamPage from '../TeamPage';
-import News from '../News';
 import PrivateRoute from './PrivateRoute';
 
 /** Routes for site.
@@ -31,7 +30,7 @@ function Routes({ login, signup }) {
         <div className='pt-5'>
             <Switch>
 
-                <Route exact path='/'>
+                <Route exact path='/' component={Homepage}>
                     <Homepage />
                 </Route>
                 
@@ -43,16 +42,12 @@ function Routes({ login, signup }) {
                     <SignupForm signup={ signup } />
                 </Route>
                 
-                <Route exact path='/teams'>
+                <Route exact path='/teams' component={Homepage}>
                     <Teams />
                 </Route>
 
-                <Route exact path='/teams/:team'>
+                <Route exact path='/teams/:team' component={Homepage}>
                     <TeamPage />
-                </Route>
-                
-                <Route exact path='/news'>
-                    <News />
                 </Route>
                 
                 <PrivateRoute exact path='/profile'>

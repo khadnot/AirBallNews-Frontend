@@ -54,7 +54,7 @@ function LoginForm({ login }) {
                     />
                 </div>
 
-                {formErrors.length
+                {formErrors.length >= 1
                     ? <Alert type='danger' messages={formErrors} />
                     : null}
 

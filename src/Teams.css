@@ -8,6 +8,10 @@ div {
     padding: 15px;
 }
 
+div.column :hover {
+    cursor: pointer;
+}
+
 .column {
     float: left;
     width: 10%;

@@ -47,6 +47,7 @@ function ProfileForm() {
         };
 
         let username = formData.username;
+        console.log(username);
         let updatedUser;
 
         try {
@@ -123,7 +124,7 @@ function ProfileForm() {
                     />
                 </div>
 
-                {formErrors.length
+                {formErrors.length >= 1
                     ? <Alert type='danger' messages={formErrors} />
                     : null
                 }

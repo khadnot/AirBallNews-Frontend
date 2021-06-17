@@ -55,6 +55,12 @@ class Api {
         let res = await this.request(`users/${username}`, data, 'patch');
         return res.user;
     }
+
+    // Get player names
+    static async getPlayers(team) {
+        let res = await this.request(`teams/${team}`, 'get');
+        return res.team;
+    }
 }
 
 export default Api;
