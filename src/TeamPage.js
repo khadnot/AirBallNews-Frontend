@@ -11,7 +11,7 @@ class News extends Component {
         this.state = {
             news: [],
             team: "",
-            playerIds: []
+            players: []
         };
     }
 
@@ -34,18 +34,18 @@ class News extends Component {
         for (let word of splitTeam) {
             fullName += word.charAt(0).toUpperCase() + word.slice(1) + ' ';
         }
-        //const names = await Api.getPlayers('BKN');
-        const playerIds = await Api.getPlayers('LAL');
+        //************************************************************************** */
+        const teamId = localStorage.getItem('teamName');
+        const players = await Api.getPlayers(teamId);
         this.setState({ 
             news: res.data.articles,
             team: fullName,
-            playerIds: playerIds
+            players: players
         });
-        console.log(playerIds);
-    }
+    } 
     
     render() {
-        const { news, team, playerIds } = this.state;
+        const { news, team, players } = this.state;
         let mappedArr = news.map(news => {
             return (
                 <div className='container' key={news.title}>
@@ -58,11 +58,17 @@ class News extends Component {
                 </div>
             );
         });
-        let playerNames = playerIds.map(player => {
-            let url=`https://cdn.nba.com/headshots/nba/latest/260x190/${player}.png`;
+        let playerArr = players.map(player => {
+            let url=`https://cdn.nba.com/headshots/nba/latest/260x190/${player.playerId}.png`;
+            let nameUrl = `${player.name}`.split(" ").join("-").toLowerCase();
+            let profile = `https://www.nba.com/player/${player.playerId}/${nameUrl}`;
             return (
-                <div className='playerPics' key={player}>
-                    <img src={url} alt={player} className='player' />
+                <div className='playerPics' key={player.playerId}>
+                    <a href={profile} target='_blank' rel='noreferrer'>
+                        <img src={url} alt={player.playerId} className='player' />
+                    </a>
+                    <p>{player.name}</p>
+                    <p>[ {player.pos} ]</p>
                 </div>
             )
         })
@@ -70,12 +76,18 @@ class News extends Component {
         return (
             <div className="App">
                 <h3>Welcome to the News Page for the { team }</h3>
+                <p>(Click player for stats)</p>
                 <br />
-                {playerNames}
+                <div>
+                    {playerArr}
+                </div>
                 <br />
-                <ul>
-                    {mappedArr}
-                </ul>
+                <div className='News'>
+                    <h1>Team News</h1>
+                    <ul>
+                        {mappedArr}
+                    </ul>
+                </div>
             </div>
         );
     }

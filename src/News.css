@@ -38,6 +38,12 @@
     transform: translate(-50%, -50%);
   }
 
-img.player {
-  width: 10%;
-}
+  div.playerPics {
+    min-width: 100px;
+    min-height: 150px;
+    display: inline-block;
+  }
+
+  img.player {
+    width: 50%;
+  }
