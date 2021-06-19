@@ -1,0 +1,18 @@
+@import 
+url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+.Homepage {
+    /* put around the vertical center of page */
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+  }
+
+  .btn {
+    margin: 10px;
+  }
+
+  h1 {
+    font-family: 'Slackey', cursive;
+    font-size: 75px;
+  }

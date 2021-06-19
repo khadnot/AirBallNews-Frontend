@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 //import { useParams } from "react-router-dom";
 import { withRouter } from "react-router";
 import Api from "./api";
@@ -83,7 +83,7 @@ class News extends Component {
                 </div>
                 <br />
                 <div className='News'>
-                    <h1>Team News</h1>
+                    <h2>Team News</h2>
                     <ul>
                         {mappedArr}
                     </ul>

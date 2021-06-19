@@ -28,41 +28,54 @@ function LoginForm({ login }) {
     }
 
     return (
-        <div className='Login'>
-            <h1>This is the Login Page! Welcome and Have Fun!</h1>
-            <br />
-            <form onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <label>Username:</label>
-                    <input 
-                        name='username'
-                        value={formData.username}
-                        onChange={handleChange}
-                        autoComplete='username'
-                        required
-                    />
+        <div className="LoginForm">
+        <div className="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <h3 className="mb-3">Log In to Air Ball News</h3>
+
+          <div className="card">
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>Username</label>
+                  <input
+                      name="username"
+                      className="form-control"
+                      value={formData.username}
+                      onChange={handleChange}
+                      autoComplete="username"
+                      required
+                  />
                 </div>
-                <div className='form-group'>
-                    <label>Password:</label>
-                    <input
-                        type='password'
-                        name='password'
-                        value={formData.password}
-                        onChange={handleChange}
-                        autoComplete='current-password'
-                        required
-                    />
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      value={formData.password}
+                      onChange={handleChange}
+                      autoComplete="current-password"
+                      required
+                  />
                 </div>
 
-                {formErrors.length >= 1
-                    ? <Alert type='danger' messages={formErrors} />
+                {formErrors.length
+                    ? <Alert type="danger" messages={formErrors} />
                     : null}
-
-                <button onSubmit={handleSubmit}>
-                    Submit
+                    
+                <br />
+                <button
+                    className="btn btn-primary float-right"
+                    onSubmit={handleSubmit}
+                >
+                  Submit
                 </button>
-            </form>
-        </div>)
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
 }
 
 export default LoginForm;

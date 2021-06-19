@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, useHistory, withRouter } from 'react-router-dom';
 //import useLocalStorage from "./hooks/useLocalStorage";
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
