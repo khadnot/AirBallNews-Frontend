@@ -90,7 +90,7 @@ function ProfileForm() {
                 <input
                     name="firstName"
                     className="form-control"
-                    value={formData.firstName}
+                    placeholder={formData.firstName}
                     onChange={handleChange}
                 />
               </div>

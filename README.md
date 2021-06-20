@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Capstone 2 Proposal  
+  
+# ABN - Air Ball News  
+  
+## Overview
+- Web application that shows news, games, stats, and standings for the current 2020-2021 NBA season. My app is geared towards fans of the NBA who want to keep track of their favorite teams' progress in the season. After a user creates an account or signs in with a previously created account they'll see a page with the logos and names of all the teams in the NBA. They'll pick their favorite or whichever team they want to look up stats on. The team page will show information such as current/most recent game played, players/player stats, team related news, and current standings in their division. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack
+- I'll be using the MERN stack for my project. MongoDB, Express, React, and Node.js
 
-## Available Scripts
+## Schema
+- I'll have a table for user information such as username, password, first name, last name, email, and favorite team.
+- There will also be a table for teams that includes the name and team id.
 
-In the project directory, you can run:
+## Potential API Issues
+- Missing or incomplete team/player data.
+- Missing or incomplete game data.
+- The API being down for maintenance or other issues.
 
-### `npm start`
+## Functionality/User Flow
+- Upon entering the site, a user can either sign up for an account or log in to their previous account.
+- To sign up for an account you'll need a username, password, first name, last name, email, and favorite team.
+- After signing up you'll see a page asking if you'd like to see the team page of your favorite team or you can choose to see the team page of another team.
+- Once on the team page you'll see team news, player info/stats, and previous/current game information.
+- Clicking a news article will open that article in a new window.
+- If a current game is being played you'll see score updates and possibly a link to watch the game live.
+- If you want to change your favorite team, you can do so in the settings along with changing your username, first name, last name, and email.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## API Used
+- For team/player stats and game information I'll be using API-NBA (https://rapidapi.com/api-sports/api/api-nba)
+- For team news I'll be using News API (https://newsapi.org/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Stretch Goals
+- Integrate Twitter so users and live tweet during a game.
+- Create a mobile version of my site using React Native.
+- Track/edit fantasy sports leagues.
