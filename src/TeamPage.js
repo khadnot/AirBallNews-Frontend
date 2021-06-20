@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-//import { useParams } from "react-router-dom";
 import { withRouter } from "react-router";
 import Api from "./api";
 import axios from 'axios';
+import ScoreCard from './ScoreCard.js';
 import './News.css';
 
 class News extends Component {
@@ -11,7 +11,8 @@ class News extends Component {
         this.state = {
             news: [],
             team: "",
-            players: []
+            players: [],
+            id: ""
         };
     }
 
@@ -35,17 +36,20 @@ class News extends Component {
             fullName += word.charAt(0).toUpperCase() + word.slice(1) + ' ';
         }
         //************************************************************************** */
-        const teamId = localStorage.getItem('teamName');
-        const players = await Api.getPlayers(teamId);
+        const teamName = localStorage.getItem('teamName');
+        const players = await Api.getPlayers(teamName);
+        const teamId = players[0].teamId;
         this.setState({ 
             news: res.data.articles,
             team: fullName,
-            players: players
+            players: players,
+            id: teamId
         });
     } 
     
     render() {
-        const { news, team, players } = this.state;
+        const { news, team, players, id } = this.state;
+        // Render news articles
         let mappedArr = news.map(news => {
             return (
                 <div className='container' key={news.title}>
@@ -58,6 +62,7 @@ class News extends Component {
                 </div>
             );
         });
+        // Render starting five players
         let playerArr = players.map(player => {
             let url=`https://cdn.nba.com/headshots/nba/latest/260x190/${player.playerId}.png`;
             let nameUrl = `${player.name}`.split(" ").join("-").toLowerCase();
@@ -71,12 +76,16 @@ class News extends Component {
                     <p>[ {player.pos} ]</p>
                 </div>
             )
-        })
+        });
+
+        console.log(`The team id for ${team} is ${id}`)
 
         return (
             <div className="App">
                 <h3>Welcome to the News Page for the { team }</h3>
                 <p>(Click player for stats)</p>
+                <br />
+                <ScoreCard teamId={id} />
                 <br />
                 <div>
                     {playerArr}

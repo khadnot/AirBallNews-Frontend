@@ -1,18 +1,6 @@
 import React, { Component } from 'react';
-//import useLocalStorage from "./hooks/useLocalStorage";
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
-
-//import NBA from 'nba';
-//const curry = NBA.findPlayer('Stephen Curry');
-//NBA.stats.playerInfo({ PlayerID: curry.playerId }).then(console.log);
-//console.log(curry);
-// curry player id = 201939
-// image source https://cdn.nba.com/headshots/nba/latest/260x190/{playerId}.png
-// change player id for each picture
-
-// Key name for storing team id in localStorage for database
-export const TEAM_ID = 'team-id';
 
 class Teams extends Component {
 
@@ -24,8 +12,6 @@ class Teams extends Component {
       url: ""
     }
   }
-
-  // this.props.history.push("/about")
 
   async handleClick(e) {
     e.preventDefault();
@@ -49,11 +35,11 @@ class Teams extends Component {
         <div className='row'>
           <div className='column' 
             to='/teams/atlanta%25hawks' id='ATL' onClick={this.handleClick}>
-            <NBAIcons.ATL size={125} team='ATL' />
+            <NBAIcons.ATL size={125} />
           </div>
           <div className='column' 
             to='/teams/brooklyn%25nets' id='BKN' onClick={this.handleClick}>
-            <NBAIcons.BKN size={125} team='BKN' />
+            <NBAIcons.BKN size={125} />
           </div>
           <div className='column' 
             to='/teams/celtics' id='BOS' onClick={this.handleClick}>
