@@ -1,4 +1,4 @@
-div.live-stats { 
+div.scoreboard { 
     width: 100%;
     height: auto;
     margin: 0 auto;
@@ -6,6 +6,7 @@ div.live-stats {
     position: relative;
     overflow: auto;
     border: 5px solid black;
+    text-align: center;
 }
 
 div.visitor {
@@ -14,15 +15,23 @@ div.visitor {
     border: 5px solid black;
 }
 
-div.clock {
+div.game-details {
     margin: 0 auto;
     position: relative;
     width: 20%;
-    border: 2px solid black;
+    display: inline-block
 }
 
 div.home {
     float: right;
     width: 30%;
     border: 5px solid black;
+}
+
+div.visitor img {
+    width: 100px;
+}
+
+div.home img {
+    width: 100px;
 }

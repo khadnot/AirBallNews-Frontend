@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Team from './Team';
+import GameDetails from './GameDetails';
+import dateformat from 'dateformat';
 import './ScoreCard.css';
 
 class ScoreCard extends Component {
@@ -10,12 +12,17 @@ class ScoreCard extends Component {
             hTeam: "",
             vTeam: "",
             hScore: "",
-            vScore: ""
+            vScore: "",
+            hLogo: "",
+            vLogo: "",
+            arena: "",
+            city: "",
+            date: "2021-05-18T22:30:00.000Z"
         };
     };
 
     async componentDidMount() {
-        const teamId = this.props.teamId;
+        const teamId = await localStorage.getItem('teamId');
         const options = await {
             method: 'GET',
             url: `https://api-nba-v1.p.rapidapi.com/games/teamId/${teamId}`,
@@ -28,13 +35,18 @@ class ScoreCard extends Component {
         try {
             await axios.request(options).then(res => {
                 let games = res.data.api.games;
-                let latestGames = games[games.length - 1];
-                console.log('The latest game is: ', latestGames);
+                let latestGame = res.data.api.games[games.length - 1]
+                console.log('The latest game is: ', latestGame);
                 this.setState({
-                    hTeam: res.data.api.games[0].hTeam.fullName,
-                    vTeam: res.data.api.games[0].vTeam.fullName,
-                    hScore: res.data.api.games[0].hTeam.score.points,
-                    vScore: res.data.api.games[0].vTeam.score.points
+                    hTeam: latestGame.hTeam.fullName,
+                    vTeam: latestGame.vTeam.fullName,
+                    hScore: latestGame.hTeam.score.points,
+                    vScore: latestGame.vTeam.score.points,
+                    hLogo: latestGame.hTeam.logo,
+                    vLogo: latestGame.vTeam.logo,
+                    arena: latestGame.arena,
+                    city: latestGame.city,
+                    date: latestGame.startTimeUTC
                 });
             });
         } catch (err) {
@@ -43,19 +55,23 @@ class ScoreCard extends Component {
     }
 
     render() {
-        // name={this.state.(vTeam/hTeam)} score={this.state.(vScore/hScore)}
-        //console.log('The home team is: ', this.state.hTeam);
-        //console.log('The visting team is: ', this.state.vTeam);
+        let newDate = dateformat(this.state.date, "dddd, mmmm dS, yyyy, h:MM:ss TT")
         return (
-            <div className='live-stats'>
+            <div className='scoreboard'>
                 <div className='visitor'>
-                   <Team name={this.state.vTeam} score={this.state.vScore} />
+                   <Team name={this.state.vTeam} 
+                         score={this.state.vScore} 
+                         logo={this.state.vLogo} />
                 </div>
-                <div className='clock'>
-                    <p>Clock 04:20</p>
+                <div className='game-details'>
+                    <GameDetails arena={this.state.arena}
+                                 city={this.state.city}
+                                 date={newDate} />
                 </div>
                 <div className='home'>
-                   <Team name={this.state.hTeam} score={this.state.hScore} /> 
+                   <Team name={this.state.hTeam} 
+                         score={this.state.hScore}
+                         logo={this.state.hLogo} /> 
                 </div>
             </div>
         )

@@ -11,8 +11,7 @@ class News extends Component {
         this.state = {
             news: [],
             team: "",
-            players: [],
-            id: ""
+            players: []
         };
     }
 
@@ -38,17 +37,15 @@ class News extends Component {
         //************************************************************************** */
         const teamName = localStorage.getItem('teamName');
         const players = await Api.getPlayers(teamName);
-        const teamId = players[0].teamId;
         this.setState({ 
             news: res.data.articles,
             team: fullName,
-            players: players,
-            id: teamId
+            players: players
         });
     } 
     
     render() {
-        const { news, team, players, id } = this.state;
+        const { news, team, players } = this.state;
         // Render news articles
         let mappedArr = news.map(news => {
             return (
@@ -78,16 +75,16 @@ class News extends Component {
             )
         });
 
-        console.log(`The team id for ${team} is ${id}`)
-
         return (
             <div className="App">
                 <h3>Welcome to the News Page for the { team }</h3>
-                <p>(Click player for stats)</p>
+                <h3>Latest Game</h3>
                 <br />
-                <ScoreCard teamId={id} />
+                <ScoreCard />
                 <br />
                 <div>
+                    <h3>Starting Five</h3>
+                    <p>(Click player for stats)</p>
                     {playerArr}
                 </div>
                 <br />
