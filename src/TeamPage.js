@@ -17,8 +17,8 @@ class News extends Component {
 
     async componentDidMount() {
         const team = this.props.match.params.team;
-        const API_KEY = 'a6cabd1a61ed4f74b9db44143a8370f5';
-        const news = `https://newsapi.org/v2/everything?q=${team}&pageSize=5&apiKey=${API_KEY}`;
+        const NEWS_API_KEY = 'a6cabd1a61ed4f74b9db44143a8370f5';
+        const news = `https://newsapi.org/v2/everything?q=${team}&pageSize=5&apiKey=${NEWS_API_KEY}`;
         let res = null;
         try {
             res = await axios(news, {

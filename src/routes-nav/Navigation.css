@@ -1,14 +1,18 @@
 .Navigation {
-    background-color:blanchedalmond;
+    background-color: rgb(241, 95, 95); /*rgb(22, 105, 200);*/
     border-bottom: 2px solid rgba(0, 0, 0, 0.125);
     font-weight: bold;
   }
   
-  .nav-link.active {
-    font-weight: bold;
+  .nav-link {
     color: black;
+  }
+
+  .nav-link:hover {
+    font-weight: bold;
   }
 
   ul {
     list-style-type: none;
 }
+

@@ -32,7 +32,7 @@ function SignupForm({ signup }) { // { signup } param
         <div className="SignupForm">
         <div className="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
           <h2 className="mb-3">Sign Up for Air Ball News</h2>
-          <div className="card">
+          <div>
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -87,12 +87,12 @@ function SignupForm({ signup }) { // { signup } param
                   />
                 </div>
 
-                {formErrors.length
+                {formErrors.length >= 1
                     ? <Alert type="danger" messages={formErrors} />
                     : null
                 }
 
-                <br />
+                
                 <button
                     type="submit"
                     className="btn btn-primary float-right"

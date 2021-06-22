@@ -60,7 +60,7 @@ function App() {
       setToken(token);
       return { success: true };
     } catch (err) {
-      console.log("login failed", err);
+      console.error("login failed", err);
       return { success: false, err };
     }
   }

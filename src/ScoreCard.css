@@ -17,9 +17,9 @@ div.visitor {
 
 div.game-details {
     margin: 0 auto;
-    position: relative;
+    /*position: relative;*/
     width: 20%;
-    display: inline-block
+    display: inline-block;
 }
 
 div.home {

@@ -38,7 +38,7 @@ function Navigation({ logout }) {
 
     function loggedOutNav() {
         return (
-            <ul className='nav-bar mr-auto'>
+            <ul className='navbar nav ml-auto'>
                 <li className='nav-item mr-4'>
                     <NavLink className='nav-link' to='/login'>
                         Login
@@ -54,7 +54,7 @@ function Navigation({ logout }) {
     }
 
     return (
-        <nav className='Navigation navbar'>
+        <nav className='Navigation navbar navbar-expand-md fixed-top py-3 navbar-light justify-content-between'>
             <Link className='navbar-brand' to='/'>
                 Air Ball News
             </Link>

@@ -77,20 +77,18 @@ function ProfileForm() {
     
     return(
         <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-        <h2>Edit Profile</h2>
-        <div className="card">
+        <div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label>Username:</label>
-                <h3 className="form-control-plaintext">{currentUser.username}</h3>
+                <h3 className="form-control-plaintext">Edit User: {currentUser.username}</h3>
               </div>
               <div className="form-group">
                 <label>First Name:</label>
                 <input
                     name="firstName"
                     className="form-control"
-                    placeholder={formData.firstName}
+                    value={formData.firstName}
                     onChange={handleChange}
                 />
               </div>
@@ -124,7 +122,7 @@ function ProfileForm() {
               </div>
 
               {formErrors.length
-                  ? <Alert type="danger" messages={formErrors} />
+                  ? <Alert type="danger" messages={["Incorrect Password Entered"]} />
                   : null}
 
               {saveConfirmed
