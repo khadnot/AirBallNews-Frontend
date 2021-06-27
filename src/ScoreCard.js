@@ -17,7 +17,7 @@ class ScoreCard extends Component {
             vLogo: "",
             arena: "",
             city: "",
-            date: "2021-05-18T22:30:00.000Z"
+            date: ""
         };
     };
 
@@ -27,7 +27,7 @@ class ScoreCard extends Component {
             method: 'GET',
             url: `https://api-nba-v1.p.rapidapi.com/games/teamId/${teamId}`,
             headers: {
-              'x-rapidapi-key': process.env.NBA_API_KEY,
+              'x-rapidapi-key': '8251cf3888msh07e1bcfd619aa5ap1cdec6jsn5796fbe6a699',
               'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com'
             }
           };
@@ -55,7 +55,7 @@ class ScoreCard extends Component {
     }
 
     render() {
-        let newDate = dateformat(this.state.date, "dddd, mmmm dS, yyyy, h:MM:ss TT")
+        let newDate = dateformat(this.state.date, "dddd, mmmm dS, yyyy @ h:MM TT")
         return (
             <div className='scoreboard'>
                 <div className='visitor'>
