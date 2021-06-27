@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
 class Teams extends Component {
 
@@ -28,7 +28,7 @@ class Teams extends Component {
     localStorage.setItem('teamName', team)
     localStorage.setItem('teamUrl', url)
     localStorage.setItem('teamId', id)
-    window.location.href = `${BASE_URL}/${url}`;
+    window.location.href = `${BASE_URL}${url}`;
   }
 
   render() {
