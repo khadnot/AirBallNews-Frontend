@@ -27,7 +27,7 @@ class ScoreCard extends Component {
             method: 'GET',
             url: `https://api-nba-v1.p.rapidapi.com/games/teamId/${teamId}`,
             headers: {
-              'x-rapidapi-key': '8251cf3888msh07e1bcfd619aa5ap1cdec6jsn5796fbe6a699',
+              'x-rapidapi-key': process.env.REACT_APP_NBA_API,
               'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com'
             }
           };
