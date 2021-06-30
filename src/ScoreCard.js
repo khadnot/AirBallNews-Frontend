@@ -35,8 +35,13 @@ class ScoreCard extends Component {
         try {
             await axios.request(options).then(res => {
                 let games = res.data.api.games;
-                let latestGame = res.data.api.games[games.length - 1]
-                console.log('The latest game is: ', latestGame);
+                let latestGame = {};
+                for (let game of games.reverse()) {
+                    if (game.statusGame === 'Finished') {
+                      latestGame = game;
+                      break;
+                    }
+                  }
                 this.setState({
                     hTeam: latestGame.hTeam.fullName,
                     vTeam: latestGame.vTeam.fullName,
