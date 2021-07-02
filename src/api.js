@@ -58,7 +58,7 @@ class Api {
 
     // Get player names
     static async getPlayers(team) {
-        let res = await this.request(`teams/${team}`, 'get');
+        let res = await this.request(`teams/${team}`);
         return res.team;
     }
 
