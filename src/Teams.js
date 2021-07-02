@@ -23,7 +23,6 @@ class Teams extends Component {
       url: e.currentTarget.attributes.to.value,
       id: e.currentTarget.attributes.teamId.value
     });
-    console.log(this.state)
     const { team, url, id } = this.state;
     localStorage.setItem('teamName', team)
     localStorage.setItem('teamUrl', url)

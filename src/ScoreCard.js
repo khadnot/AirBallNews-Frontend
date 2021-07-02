@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Team from './Team';
 import GameDetails from './GameDetails';
 import dateformat from 'dateformat';
+import Api from "./api";
 import './ScoreCard.css';
 
 class ScoreCard extends Component {
@@ -22,37 +22,22 @@ class ScoreCard extends Component {
     };
 
     async componentDidMount() {
+
         const teamId = await localStorage.getItem('teamId');
-        const options = await {
-            method: 'GET',
-            url: `https://api-nba-v1.p.rapidapi.com/games/teamId/${teamId}`,
-            headers: {
-              'x-rapidapi-key': process.env.REACT_APP_NBA_API,
-              'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com'
-            }
-          };
 
         try {
-            await axios.request(options).then(res => {
-                let games = res.data.api.games;
-                let latestGame = {};
-                for (let game of games.reverse()) {
-                    if (game.statusGame === 'Finished') {
-                      latestGame = game;
-                      break;
-                    }
-                  }
-                this.setState({
-                    hTeam: latestGame.hTeam.fullName,
-                    vTeam: latestGame.vTeam.fullName,
-                    hScore: latestGame.hTeam.score.points,
-                    vScore: latestGame.vTeam.score.points,
-                    hLogo: latestGame.hTeam.logo,
-                    vLogo: latestGame.vTeam.logo,
-                    arena: latestGame.arena,
-                    city: latestGame.city,
-                    date: latestGame.startTimeUTC
-                });
+            let latestGame = await Api.getLatestGame(teamId);
+
+            this.setState({
+                hTeam: latestGame.hTeam.fullName,
+                vTeam: latestGame.vTeam.fullName,
+                hScore: latestGame.hTeam.score.points,
+                vScore: latestGame.vTeam.score.points,
+                hLogo: latestGame.hTeam.logo,
+                vLogo: latestGame.vTeam.logo,
+                arena: latestGame.arena,
+                city: latestGame.city,
+                date: latestGame.startTimeUTC
             });
         } catch (err) {
           console.log(err);
