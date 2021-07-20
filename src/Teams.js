@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Teams.css'
 import * as NBAIcons from 'react-nba-logos';
 
-const BASE_URL = 'https://air-ball-news.surge.sh' || 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3000' || 'https://air-ball-news.surge.sh';
 
 class Teams extends Component {
 
