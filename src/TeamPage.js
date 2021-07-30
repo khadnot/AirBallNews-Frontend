@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import Api from "./api";
-import axios from 'axios';
 import ScoreCard from './ScoreCard.js';
 import './News.css';
 
@@ -17,18 +16,6 @@ class News extends Component {
 
     async componentDidMount() {
         const team = this.props.match.params.team;
-        const NEWS_API = 'a6cabd1a61ed4f74b9db44143a8370f5';
-        const news = `https://newsapi.org/v2/everything?q=${team}&pageSize=5&apiKey=${NEWS_API}`;
-        let res = null;
-        try {
-            res = await axios(news, {
-                headers: {
-                    Accept: 'application/json'
-                }
-            });
-        } catch (err) {
-          console.log(err);
-        }
         let fullName = '';
         let splitTeam = team.split('%');
         for (let word of splitTeam) {
@@ -36,9 +23,10 @@ class News extends Component {
         }
         //************************************************************************** */
         const teamName = localStorage.getItem('teamName');
-        const players = await Api.getPlayers(teamName);
+        const players = await Api.getPlayers(teamName); // teamName for brooklyn nets is BKN
+        const news = await Api.getTeamNews(team);
         this.setState({ 
-            news: res.data.articles,
+            news: news,
             team: fullName,
             players: players
         });

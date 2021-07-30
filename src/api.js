@@ -67,6 +67,12 @@ class Api {
         let res = await this.request(`games/${teamId}`);
         return res.latestGame;
     }
+
+    // Get team news
+    static async getTeamNews(team) {
+        let res = await this.request(`news/${team}`);
+        return res.data.articles;
+    }
 }
 
 export default Api;
