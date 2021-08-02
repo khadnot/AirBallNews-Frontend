@@ -71,7 +71,7 @@ class Api {
     // Get team news
     static async getTeamNews(team) {
         let res = await this.request(`news/${team}`);
-        return res.data.articles;
+        return res.teamNews;
     }
 }
 

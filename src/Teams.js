@@ -38,7 +38,7 @@ class Teams extends Component {
         <br />
         <div className='row'>
           <div className='column' 
-            to='atlanta%25hawks' id='ATL' teamId='1' onClick={this.handleClick}>
+            to='atlanta%hawks' id='ATL' teamId='1' onClick={this.handleClick}>
             <NBAIcons.ATL size={125} />
           </div>
           <div className='column' 
