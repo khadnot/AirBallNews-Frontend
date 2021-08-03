@@ -11,10 +11,14 @@ class ScoreCard extends Component {
         this.state = {
             hTeam: "",
             vTeam: "",
+            hCode: "",
+            vCode: "",
             hScore: "",
             vScore: "",
-            hLogo: "",
-            vLogo: "",
+            hTeamId: "",
+            vTeamId: "",
+            hTeamLogo: "",
+            vTeamLogo: "",
             arena: "",
             city: "",
             date: ""
@@ -31,14 +35,25 @@ class ScoreCard extends Component {
             this.setState({
                 hTeam: latestGame.hTeam.fullName,
                 vTeam: latestGame.vTeam.fullName,
+                hCode: latestGame.hTeam.shortName,
+                vCode: latestGame.vTeam.shortName,
                 hScore: latestGame.hTeam.score.points,
                 vScore: latestGame.vTeam.score.points,
-                hLogo: latestGame.hTeam.logo,
-                vLogo: latestGame.vTeam.logo,
+                hTeamId: latestGame.hTeam.teamId,
+                vTeamId: latestGame.vTeam.teamId,
                 arena: latestGame.arena,
                 city: latestGame.city,
                 date: latestGame.startTimeUTC
             });
+
+            let hTeamLogo = await Api.getTeamLogos(this.state.hCode, this.state.hTeamId);
+            let vTeamLogo = await Api.getTeamLogos(this.state.vCode, this.state.vTeamId);
+
+            this.setState({
+                hTeamLogo: hTeamLogo,
+                vTeamLogo: vTeamLogo
+            })
+            
         } catch (err) {
           console.log(err);
         }
@@ -51,7 +66,7 @@ class ScoreCard extends Component {
                 <div className='visitor'>
                    <Team name={this.state.vTeam} 
                          score={this.state.vScore} 
-                         logo={this.state.vLogo} />
+                         logo={this.state.vTeamLogo} /> {/* need to get logo from teams/teamID */}
                 </div>
                 <div className='game-details'>
                     <GameDetails arena={this.state.arena}
@@ -61,7 +76,7 @@ class ScoreCard extends Component {
                 <div className='home'>
                    <Team name={this.state.hTeam} 
                          score={this.state.hScore}
-                         logo={this.state.hLogo} /> 
+                         logo={this.state.hTeamLogo} /> {/* need to get logo from teams/teamID */}
                 </div>
             </div>
         )

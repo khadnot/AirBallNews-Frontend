@@ -62,6 +62,12 @@ class Api {
         return res.team;
     }
 
+    // Get team logos
+    static async getTeamLogos(team, teamId) {
+        let res = await this.request(`teams/${team}/${teamId}`);
+        return res.teamLogo;
+    }
+
     // Get team scores
     static async getLatestGame(teamId) {
         let res = await this.request(`games/${teamId}`);
