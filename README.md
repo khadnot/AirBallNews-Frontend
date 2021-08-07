@@ -1,4 +1,4 @@
-# Capstone 2 Proposal  
+# Capstone 2 Frontend  
   
 # ABN - Air Ball News  
   
