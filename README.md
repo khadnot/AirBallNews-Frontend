@@ -5,6 +5,9 @@
 ## Overview
 - Web application that shows news, games, stats, and standings for the current 2020-2021 NBA season. My app is geared towards fans of the NBA who want to keep track of their favorite teams' progress in the season. After a user creates an account or signs in with a previously created account they'll see a page with the logos and names of all the teams in the NBA. They'll pick their favorite or whichever team they want to look up stats on. The team page will show information such as current/most recent game played, players/player stats, team related news, and current standings in their division. 
 
+## Deployed
+- https://air-ball-news.surge.sh/
+
 ## Tech Stack
 - I'll be using the MERN stack for my project. MongoDB, Express, React, and Node.js
 
